@@ -1,4 +1,4 @@
-Each sample binary complex has a folder which contains:
+Each sample binary complex has a [folder](binary_complexes/) which contains:
 
 - `config files`: which specify the complete set of parameters for running sampling and analysis iteratively. The parameters include the name
 of the script to be used for sampling, the inputs directory where files are stored, a topology file (below), sampling parameters, scoring function 
@@ -16,5 +16,5 @@ finding an optimal representation for complex 7CEI when the component protein st
 `*Protein domain protein_chain fastakey start_residue end_residue pdb pdb_chain resolution color*`\
 The resolution is fixed by giving a number or specified as "bm" (stands for beadmap) if it is to be optimized. Note that one of the proteins usually has a fixed resolution while the representation of the other protein is optimized. 
 
-The TFIIH folder contains all modeling and analysis inputs for modeling TFIIH, including component PDB files, crosslinks file, EM map, FASTA file, move sizes for different sized beads, file containing EM anchor points, and so on. See the TFIIH repository and paper for details on these.
+The TFIIH [folder](tfiih/) contains all modeling and analysis inputs for modeling TFIIH, including component PDB files, crosslinks file, EM map, FASTA file, move sizes for different sized beads, file containing EM anchor points, and so on. See the TFIIH repository and paper for details on these.
 Additionally it contains a topology file similar in format to the ones used for the sample binary complexes. 
