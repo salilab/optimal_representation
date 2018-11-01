@@ -1,0 +1,27 @@
+#Protein domain protein_chain fastakey startres endres pdb pdb_chain resolution (fixed or bm) color
+ccl1 ccl1_1 - CCL1 1 283 KIN28_CCL1.pdb B 1,30 orange_red
+ccl1 ccl1_2 - CCL1 284 323 - - bm orange_red
+kin28 kin28_1 - KIN28 1 11 - - bm red
+kin28 kin28_2 - KIN28 12 312 KIN28_CCL1.pdb A 1,30 red
+kin28 kin28_3 - KIN28 313 346 - - bm red
+tfb3 tbf3_1 - TFB3 1 65 TFB3.pdb A 1,30 orange 
+tfb3 tfb3_2 - TFB3 66 309 - - bm orange
+rad3 rad3_1 - RAD3 1 15 - - bm forest_green
+rad3 rad3_2 - RAD3 16 702 RAD3.pdb - 1,30 forest_green 
+rad3 rad3_3 - RAD3 703 760 - - bm forest_green
+ssl2 ssl2_1 - SSL2 1 273 - - bm blue
+ssl2 ssl2_2 - SSL2 274 668 SSL2.pdb - 1,30 blue
+ssl2 ssl2_3 - SSL2 669 782 - - bm blue 
+tfb1 tfb1_1 - TFB1 1 108 TFB1.pdb - 1,30 yellow
+tfb1 tfb1_2 - TFB1 109 548 - - bm yellow
+tfb2 tfb2_1 - TFB2 1 394 - - bm cyan
+tfb2 tfb2_2 - TFB2 395 453 TFB2_TFB5.pdb A 1,30 cyan
+tfb2 tfb2_3 - TFB2 454 462 - - bm cyan
+tfb4 tfb4_1 - TFB4 1 2 - - bm salmon
+tfb4 tfb4_2 - TFB4 3 231 TFB4.pdb - 1,30 salmon
+tfb4 tfb4_3 - TFB4 232 308 - - bm salmon
+tfb5 tfb5_1 - TFB5 1 60 TFB2_TFB5.pdb B 1,30 dim_gray
+tfb5 tfb5_2 - TFB5 61 71 - - bm dim_gray
+ssl1 ssl1_1 - SSL1 1 327 - - bm purple
+ssl1 ssl1_2 - SSL1 328 386 SSL1.pdb - 1,30 purple
+ssl1 ssl1_3 - SSL1 387 395 - - bm purple

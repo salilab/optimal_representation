@@ -1,0 +1,635 @@
+Objavro.codecnullavro.schemaÇ∏{
+    "type": "record",
+    "name": "Frame",
+    "fields": [
+        {
+            "name": "info",
+            "type": [
+                {
+                    "type": "record",
+                    "name": "FrameInfo",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "type",
+                            "type": "int"
+                        },
+                        {
+                            "name": "parents",
+                            "type": {
+                                "type": "array",
+                                "items": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "record",
+                    "name": "FileInfo",
+                    "fields": [
+                        {
+                            "name": "description",
+                            "type": "string"
+                        },
+                        {
+                            "name": "producer",
+                            "type": "string"
+                        },
+                        {
+                            "name": "categories",
+                            "type": {
+                                "type": "array",
+                                "items": {
+                                    "type": "record",
+                                    "name": "Label",
+                                    "fields": [
+                                        {
+                                            "name": "id",
+                                            "type": "int"
+                                        },
+                                        {
+                                            "name": "name",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "node_types",
+                            "type": {
+                                "type": "array",
+                                "items": "Label"
+                            }
+                        },
+                        {
+                            "name": "frame_types",
+                            "type": {
+                                "type": "array",
+                                "items": "Label"
+                            }
+                        },
+                        {
+                            "name": "node_sets",
+                            "type": {
+                                "type": "array",
+                                "items": {
+                                    "type": "record",
+                                    "name": "NodeSet",
+                                    "fields": [
+                                        {
+                                            "name": "id",
+                                            "type": "int"
+                                        },
+                                        {
+                                            "name": "nodes",
+                                            "type": {
+                                                "type": "array",
+                                                "items": "int"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "nodes",
+            "type": {
+                "type": "array",
+                "items": {
+                    "type": "record",
+                    "name": "Node",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "type",
+                            "type": "int"
+                        },
+                        {
+                            "name": "parents",
+                            "type": {
+                                "type": "array",
+                                "items": "int"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "keys",
+            "type": {
+                "type": "array",
+                "items": {
+                    "type": "record",
+                    "name": "KeyInfo",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "category",
+                            "type": "int"
+                        },
+                        {
+                            "name": "type",
+                            "type": {
+                                "type": "enum",
+                                "name": "Type",
+                                "symbols": [
+                                    "INT",
+                                    "FLOAT",
+                                    "STRING",
+                                    "INTS",
+                                    "FLOATS",
+                                    "STRINGS",
+                                    "VECTOR3",
+                                    "VECTOR4",
+                                    "VECTOR3S"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "data",
+            "type": {
+                "type": "record",
+                "name": "TypeDatas",
+                "fields": [
+                    {
+                        "name": "int_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "IntNodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "IntValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": "int"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "float_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "FloatNodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "FloatValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": "float"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "string_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "StringNodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "StringValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "vector3_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "Vector3NodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "Vector3Value",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "record",
+                                                            "name": "Vector3",
+                                                            "fields": [
+                                                                {
+                                                                    "name": "x",
+                                                                    "type": "float"
+                                                                },
+                                                                {
+                                                                    "name": "y",
+                                                                    "type": "float"
+                                                                },
+                                                                {
+                                                                    "name": "z",
+                                                                    "type": "float"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "vector4_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "Vector4NodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "Vector4Value",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "record",
+                                                            "name": "Vector4",
+                                                            "fields": [
+                                                                {
+                                                                    "name": "w",
+                                                                    "type": "float"
+                                                                },
+                                                                {
+                                                                    "name": "x",
+                                                                    "type": "float"
+                                                                },
+                                                                {
+                                                                    "name": "y",
+                                                                    "type": "float"
+                                                                },
+                                                                {
+                                                                    "name": "z",
+                                                                    "type": "float"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "ints_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "IntsNodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "IntsValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "key",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "array",
+                                                            "items": "int"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "floats_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "FloatsNodeData",
+                                "fields": [
+                                    {
+                                        "name": "id",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "FloatsValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "array",
+                                                            "items": "float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "strings_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "StringsNodeData",
+                                "fields": [
+                                    {
+                                        "name": "id",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "StringsValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "array",
+                                                            "items": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "vector3s_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "Vector3sNodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "Vector3sValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "array",
+                                                            "items": "Vector3"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "vector4s_data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "Vector4sNodeData",
+                                "fields": [
+                                    {
+                                        "name": "key",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "values",
+                                        "type": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "record",
+                                                "name": "Vector4sValue",
+                                                "fields": [
+                                                    {
+                                                        "name": "id",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "value",
+                                                        "type": {
+                                                            "type": "array",
+                                                            "items": "Vector4"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+ 0€5Oﬂ5¬˘Ë˝Û™K¯ò rmf_slice IMP
+aliasalternativesfeaturephysics
+sequence
+shape    » root  System  State_0 B Frag_1-40 
+"Frag_1-40: Res 40 1-40_bead
+ Frag_41-62 $Frag_41-62: Res 22 41-62_bead Frag_63-63 "Frag_63-63: Res 1 63 Frag_64-64 "Frag_64-64: Res 1 64  Frag_65-65 ""Frag_65-65: Res 1  $65" &Frag_66-68 ("Frag_66-68: Res 3& *66-68_bead( ,Frag_69-69 ."Frag_69-69: Res 1, 069. 2Frag_70-70 4"Frag_70-70: Res 12 6704 8Frag_71-71 :"Frag_71-71: Res 18 <71: >Frag_72-72 @"Frag_72-72: Res 1> B72@ DFrag_73-73 F"Frag_73-73: Res 1D H73F JFrag_74-74 L"Frag_74-74: Res 1J N74L PFrag_75-75 R"Frag_75-75: Res 1P T75R VFrag_76-76 X"Frag_76-76: Res 1V Z76X \Frag_77-96 ^$Frag_77-96: Res 20\ `77-96_bead^ bFrag_97-136 d&Frag_97-136: Res 40b f97-136_beadd hFrag_137-176 j(Frag_137-176: Res 40h l137-176_beadj nA pFrag_16-245n r$Frag_16-245: Res 1p t16r v17r x18r z19r |20r ~21r Ä22r Ç23r Ñ24r Ü25r à26r ä27r å28r é29r ê30r í31r î32r ñ33r ò34r ö35r ú36r û37r †38r ¢39r §40r ¶41r ®42r ™43r ¨44r Æ45r ∞46r ≤47r ¥48r ∂49r ∏50r ∫51r º52r æ53r ¿54r ¬55r ƒ56r ∆57r »58r  59r Ã60r Œ61r –62r “63r ‘64r ÷65r ÿ66r ⁄67r ‹68r ﬁ69r ‡70r ‚71r ‰72r Ê73r Ë74r Í75r Ï76r Ó77r 78r Ú79r Ù80r ˆ81r ¯82r ˙83r ¸84r ˛85r Ä86r Ç87r Ñ88r Ü89r à90r ä91r å92r é93r ê94r í95r î96r ñ97r ò98r ö99r ú100r û101r †102r ¢103r §104r ¶105r ®106r ™107r ¨108r Æ109r ∞110r ≤111r ¥112r ∂113r ∏114r ∫115r º116r æ117r ¿118r ¬119r ƒ120r ∆121r »122r  123r Ã124r Œ125r –126r “127r ‘128r ÷129r ÿ130r ⁄131r ‹132r ﬁ133r ‡134r ‚135r ‰136r Ê137r Ë138r Í139r Ï140r Ó141r 142r Ú143r Ù144r ˆ145r ¯146r ˙147r ¸148r ˛149r Ä150r Ç151r Ñ152r Ü153r à154r ä155r å156r é157r ê158r í159r î160r ñ161r ò162r ö163r ú164r û165r †166r ¢167r §168r ¶169r ®170r ™171r ¨172r Æ173r ∞174r ≤175r ¥176r ∂177r ∏178r ∫179r º180r æ181r ¿182r ¬183r ƒ184r ∆185r »186r  187r Ã188r Œ189r –190r “191r ‘192r ÷193r ÿ194r ⁄195r ‹196r ﬁ197r ‡198r ‚199r ‰200r Ê201r Ë202r Í203r Ï204r Ó205r 206r Ú207r Ù208r ˆ209r ¯210r ˙211r ¸212r ˛213r Ä214r Ç215r Ñ216r Ü217r à218r ä219r å220r é221r ê222r í223r î224r ñ225r ò226r ö227r ú228r û229r †230r ¢231r §232r ¶233r ®234r ™235r ¨236r Æ237r ∞238r ≤239r ¥240r ∂241r ∏242r ∫243r º244r æ245r ¿8|XLDSS|0.1|A|132|B|63|0|PSI|  ¬8|XLDSS|1.1|A|170|B|72|0|PSI|  ƒ8|XLDSS|2.1|A|222|B|70|0|PSI|  ∆8|XLDSS|3.1|A|185|B|75|0|PSI|   > weight 
+score*diffusion coefficientradiusmass
+&explicit resolution
+  rigid body index  external frame  aliased bonded 1 bonded 0 
+element molecule
+ reference
+ state index
+ $last residue index
+ copy index
+ &first residue index
+ residue index
+  type name
+chain id
+residue type
+ 
+roots
+typesrepresentationresidue indexes
+ translationvariancescoordinatesrgb color rotation n   n   ‚æÍ∏‰∂‚∞‹¨ÿ§–û ú»ñ¬î¿íæÇÆ˛™¸®¯§ÍñÊí‚éﬁäÿÑ†Ã“˛–¸»ÙÚû¬Ó¿Ï∏‰∂‚≤ﬁ¨ÿ™÷®‘§–é∫û ú»òƒñ¬íæé∫Ü≤ä∂‡å¶“Ñ∞ ˆÇÆÄ¨˛™¸®™÷¯§ˆ¢¶“Ù†ÚûúÓöˆ¢ÏòËîÊí‚é‡åﬁä÷Ç“˛–¸¬Ó¿ÏÜ≤æÍºË¶“Œ˙˙¶§–†Ãö∆ñ¬ºËî¿‘ÄêºÆ⁄¢Œé∫¢ŒÇÆ∆Úú»ú˛™à¥¸®¯§Ù†Ù†‹àƒúÏòÑ∞Ëîòƒå∏Êí≤ﬁ‰êˆ¢Œ˙‚éÄ¨ﬁä®‘íæÿÑÿÑ™÷Æ⁄®‘÷Ç‡å‘Ä‹àæÍ“~–|ÃxÄ¨¥‡¨ÿ v¢Œî¿»t∫Êö∆å∏∆r⁄ÜÚûƒp⁄Üƒ¿lêº∏d∂b≤ﬁ≤^¶R¥‡ºËå∏Ã¯÷Ç™V§P¢NÓö˙¶‰ê†LÆ⁄Ã¯êºûJºhöFŒzòD∏‰û ñB⁄Ü˙¶à¥»Ù∆Úî@¥‡í>Ñ0ä∂Ü2Íñ‘Ä¨X~*z&x$Ñ∞ê<Zòä6 ˆÆZTñÜ≤Ëî‰êö∆|(†Ã∫fv"Óöå8∞‹à¥úH®TNîÄ,Bê∞‹æjä∂t Híà4¬n‹à6åòƒ<é∫Ê∫Ê0ä∞\$ÇÄÇ.¥`ÏòÍñ∂‚é:~   ∆  Ä?¿  Ä?ƒ  Ä?¬  Ä? Óæòø8@∏|¸B@∂3@∞|¸B@¨òø8@§7l-@û3@úòST@ñ›Ê1@î|¸B@íòø8@Ç(]@˛˘œ8@¸|¸B@¯•}@@Í∆u@Ê7l-@‚˘œ8@ﬁ∆u@ÿög7@†|¸B@“7l-@–¬ı&@»•}@@ÚW!@¬˘œ8@¿7l-@∏∆u@∂3@¨òST@™¬ı&@®¬ı&@§7l-@é•}@@ûòø8@ú¬ı&@ò˘œ8@ñ›Ê1@í|¸B@é7l-@Ü¬ı&@ä∆u@‡›Ê1@¶|¸B@Ñ›Ê1@ ∆u@ÇòST@Ä¬ı&@˛¬ı&@¸∆u@™˘œ8@¯¬ı&@ˆ|¸B@¶òø8@Ù3@Úòø8@∆u@Ó(]@ˆdNC@Ï∆u@Ë|¸B@ÊdNC@‚u…?@‡3@ﬁ∆u@÷W!@“¬ı&@–W!@¬W!@¿˘œ8@ÜòST@æqóO@º¬ı&@¶dNC@ŒqóO@˙¬ı&@§zTD@†ög7@ödNC@ñòø8@ºzTD@î∆u@Æ›Ê1@¢|¸B@éòø8@¢¬ı&@Ç|¸B@∆˘œ8@úög7@W!@˛W!@à3@¸òø8@¯&çP@Ùu…?@ÙW!@‹∆u@ƒ&çP@∆u@ÏdNC@Ñ|¸B@Ëög7@ò3@å7l-@Ê|¸B@≤›Ê1@‰òø8@ˆ•}@@Œög7@‚>C@Ä¬ı&@ﬁ∆u@®|¸B@íòø8@‹W!@⁄dNC@™|¸B@ÿW!@ÿqóO@Æ¬ı&@®òST@÷˘œ8@‡u…?@‘•}@@æ|¸B@“|¸B@–qóO@Ã|¸B@ÄW!@¥|¸B@¨dNC@ òST@¢˘œ8@îW!@»7l-@∫òø8@ö˘œ8@å›Ê1@∆>C@ƒ3@¿¬ı&@ê|¸B@∏•}@@∂¬ı&@≤•}@@≤|¸B@¶&çP@¥W!@ºW!@å•}@@Ã›Ê1@÷∆u@™∆u@§>C@¢¬ı&@Óu…?@˙|¸B@‰7l-@†∆u@Æ(]@Ã|¸B@êdNC@û¬ı&@àW!@úW!@º˘œ8@öW!@Œ¬ı&@òòø8@∏dNC@ûòø8@⁄W!@ñdNC@˙∆u@àdNC@»¬ı&@∆dNC@î¬ı&@¥•}@@í˘œ8@ÑW!@z∆u@x∆u@Ñ∆u@ê•}@@†¬ı&@∫(]@v˘œ8@ÓW!@å›Ê1@∞¬ı&@ä>C@t|¸B@`îÒ@Z|¸B@ä|¸B@ dNC@Æ¬ı&@TdNC@Ü|¸B@Ëòø8@‰˘œ8@ödNC@|òST@®7l-@N¬ı&@fP/AÄ7l-@HdNC@à¬ı&@6∆u@‹W!@¬W!@ò∆u@<>C@∫W!@∫òø8@0u…?@B›Ê1@∞∆u@æ˘œ8@ädNC@Üòø8@Í˘œ8@¨∆u@lP/A~3@‘7l-@*è[Ä@∞dNC@$qóO@¥òø8@Ï•}@@Í¬ı&@∂3@éòST@qóO@⁄¬ı&@Úòø8@ƒW!@≤•}@@c`˘@|¸B@ÇW!@‘•}@@P/Aê&çP@ Óæ?5‰B∏ÏQ‚B∂√5 B∞ÏQ‚B¨?5‰B§∫IŒBû√5 BúÖ+#CñÁ;¬Bîã, Cí?5‰BÇá6:C˛D∆B¸ÏQ‚B¯â! CÍ?5dBÊ∫IŒB‚D∆Bﬁ?5dBÿë-ÊB†ã, C“∫IŒB–'ÆB»â! CÚs(éB¬D∆B¿∫IŒB∏?5dB∂√5 B¨Ö+#C™'ÆB®'ÆB§∫IŒBéâ! Cû?5‰Bú'ÆBòD∆BñÁ;¬Bíã, Cé∫IŒBÜ'ÆBä?5dB‡Á;¬B¶ã, CÑÁ;¬B ?5dBÇÖ+#CÄ'ÆB˛'ÆB¸?5dB™D∆B¯'ÆBˆã, C¶?5‰BÙ√5 BÚ?5‰B?5dBÓá6:CˆÏQ‚BÏ?5dBËÏQ‚BÊÏQ‚B‚≤C‡√5 Bﬁ?5dB÷s(éB“'ÆB–s(éB¬s(éB¿D∆BÜÖ+#Cæ!0Cº'ÆB¶ÏQ‚BŒ!0C˙'ÆB§∞2C†ë-ÊBöÏQ‚Bñ?5‰Bº∞2Cî?5dBÆÁ;¬B¢ÏQ‚Bé?5‰B¢'ÆBÇã, C∆D∆Búë-ÊBs(éB˛s(éBà√5 B¸?5‰B¯P-CÙ≤CÙs(éB‹?5dBƒP-C?5dBÏÏQ‚BÑÏQ‚BËë-ÊBò√5 Bå∫IŒBÊÏQ‚B≤Á;¬B‰?5‰Bˆâ! CŒë-ÊB‚Z$	CÄ'ÆBﬁ?5dB®ÏQ‚Bí?5‰B‹s(éB⁄ÏQ‚B™ã, Cÿs(éBÿ!0CÆ'ÆB®Ö+#C÷D∆B‡≤C‘â! CæÏQ‚B“ÏQ‚B–!0CÃã, CÄs(éB¥ÏQ‚B¨ÏQ‚B Ö+#C¢D∆Bîs(éB»∫IŒB∫?5‰BöD∆BåÁ;¬B∆Z$	Cƒ√5 B¿'ÆBêã, C∏â! C∂'ÆB≤â! C≤ÏQ‚B¶P-C¥s(éBºs(éBåâ! CÃÁ;¬B÷?5dB™?5dB§Z$	C¢'ÆBÓ≤C˙ÏQ‚B‰∫IŒB†?5dBÆá6:CÃã, CêÏQ‚Bû'ÆBàs(éBús(éBºD∆Bös(éBŒ'ÆBò?5‰B∏ÏQ‚Bû?5‰B⁄s(éBñÏQ‚B˙?5dBàÏQ‚B»'ÆB∆ÏQ‚Bî'ÆB¥â! CíD∆BÑs(éBz?5dBx?5dBÑ?5dBêâ! C†'ÆB∫á6:CvD∆BÓs(éBåÁ;¬B∞'ÆBäZ$	CtÏQ‚B` Ä	EZ  ‹BäÏQ‚B ÏQ‚BÆ'ÆBT  ‹BÜÏQ‚BË?5‰B‰D∆BöÏQ‚B|Ö+#C®∫IŒBN  ‹Bf ÄâEÄ∫IŒBH  ‹Bà'ÆB6  ‹B‹s(éB¬s(éBò?5dB<  ‹B∫s(éB∫?5‰B0  ‹BB  ‹B∞?5dBæD∆BäÏQ‚BÜ?5‰BÍD∆B¨?5dBl ÄâE~√5 B‘∫IŒB*  •C∞ÏQ‚B$  ‹B¥?5‰BÏâ! CÍ'ÆB∂√5 BéÖ+#C  ‹B⁄'ÆBÚ?5‰Bƒs(éB≤â! C @E  ‹BÇs(éB‘â! C ÄâEêP-C 
+$p  Ä?h   B\  †AP  Ä?J  Ä?>  Ä?8  Ä?2  Ä?,  Ä?D  Ä?&  @@   Ä?  Ä?V  Ä?  ∞A   B  Ä?b   B  nAB ‚æASN∏ILE∂THR∞ILE¨ASN§CYSûTHRúTYRñPROîLYSíASNÇTRP˛VAL¸ILE¯GLNÍGLYÊCYS‚VALﬁGLYÿASP†LYS“CYS–SER»GLNÚALA¬VAL¿CYS∏GLY∂THR≤GLN¨TYR™SER®SER§CYSéGLNûASNúSERòVALñPROíLYSéCYSÜSERäGLY‡PRO¶LYSÑPRO GLYÇTYRÄSER˛SER¸GLY™VAL¯SERˆLYS¶ASNÙTHRÚASNGLYÓTRPˆLEUÏGLYËILEÊLEU‚GLU‡THRﬁGLY÷ALA“SER–ALA¬ALA¿VALÜTYRæARGºSER¶LEUŒARG˙SER§MET†ASPöLEUñASNºMETîGLY‘GLNêPHEÆPRO¢ILEéASN¢SERÇLYS∆VALúASPALA˛ALAàTHR¸ASN¯PHEÙGLUÙALA‹GLYƒPHEGLYÏLEUÑILEËASPòTHRåCYSÊILE≤PRO‰ASNˆGLNŒASP‚HISÄSERﬁGLY®ILEíASNÿARGÿALA™LYSÆSER®TYR÷VAL‡GLU‘GLN‹ALAæILE“ILE–ARGÃLYSÄALA¥ILE¨LEU TYR¢VALîALA»CYS∫ASNöVALåPRO∆HIS⁄SERÚASNƒALA⁄LEUƒTHR¿SERêLYS∏GLN∂SER≤GLN≤ILE¶PHE¥ALAºALAåGLNÃPRO÷GLY™GLY§HIS¢SERÓGLU˙ILE‰CYS†GLYÆTRPÃLYSêLEUûSERºVALöALAŒSERòASN∏LEUûASNñLEU⁄ALA˙GLYàLEU»SER∆LEUîSER¥GLNíVALÑALAäLEUÜASNÍVAL‘CYS¨GLY~THRzGLYxGLYÑGLYêGLNZLYSäILE LEUÆSERTLEUÜILEËASN‰VALöLEU|TYR†SER∫TRPvVALÓALAåPRO∞SERàALAúALA®CYSNSERÄCYSBPRO∞GLYæVALäHIStILEHLEUàSER¬ALA‹ALA6GLYòGLY<HIS∫ALA∫ASN0GLU∞LEU$ARGILEÇALA¥ASNÏGLNÍSER∂THRéTYRARG  Óæ          Ä?∏          Ä?∂          Ä?∞          Ä?¨          Ä?§          Ä?û          Ä?ú          Ä?ñ          Ä?î          Ä?í          Ä?Ç          Ä?˛          Ä?¸          Ä?¯          Ä?Í          Ä?Ê          Ä?‚          Ä?ﬁ          Ä?ÿ          Ä?†          Ä?“          Ä?–          Ä?»          Ä?Ú          Ä?¬          Ä?¿          Ä?∏          Ä?∂          Ä?¨          Ä?™          Ä?®          Ä?§          Ä?é          Ä?û          Ä?ú          Ä?ò          Ä?ñ          Ä?í          Ä?é          Ä?Ü          Ä?ä          Ä?‡          Ä?¶          Ä?Ñ          Ä?           Ä?Ç          Ä?Ä          Ä?˛          Ä?¸          Ä?™          Ä?¯          Ä?ˆ          Ä?¶          Ä?Ù          Ä?Ú          Ä?          Ä?Ó          Ä?ˆ          Ä?Ï          Ä?Ë          Ä?Ê          Ä?‚          Ä?‡          Ä?ﬁ          Ä?÷          Ä?“          Ä?–          Ä?¬          Ä?¿          Ä?Ü          Ä?æ          Ä?º          Ä?¶          Ä?Œ          Ä?˙          Ä?§          Ä?†          Ä?ö          Ä?ñ          Ä?º          Ä?î          Ä?Æ          Ä?¢          Ä?é          Ä?¢          Ä?Ç          Ä?∆          Ä?ú          Ä?          Ä?˛          Ä?à          Ä?¸          Ä?¯          Ä?Ù          Ä?Ù          Ä?‹          Ä?ƒ          Ä?          Ä?Ï          Ä?Ñ          Ä?Ë          Ä?ò          Ä?å          Ä?Ê          Ä?≤          Ä?‰          Ä?ˆ          Ä?Œ          Ä?‚          Ä?Ä          Ä?ﬁ          Ä?®          Ä?í          Ä?‹          Ä?⁄          Ä?™          Ä?ÿ          Ä?ÿ          Ä?Æ          Ä?®          Ä?÷          Ä?‡          Ä?‘          Ä?æ          Ä?“          Ä?–          Ä?Ã          Ä?Ä          Ä?¥          Ä?¨          Ä?           Ä?¢          Ä?î          Ä?»          Ä?∫          Ä?ö          Ä?å          Ä?∆          Ä?ƒ          Ä?¿          Ä?ê          Ä?∏          Ä?∂          Ä?≤          Ä?≤          Ä?¶          Ä?¥          Ä?º          Ä?å          Ä?Ã          Ä?÷          Ä?™          Ä?§          Ä?¢          Ä?Ó          Ä?˙          Ä?‰          Ä?†          Ä?Æ          Ä?Ã          Ä?ê          Ä?û          Ä?à          Ä?ú          Ä?º          Ä?ö          Ä?Œ          Ä?ò          Ä?∏          Ä?û          Ä?⁄          Ä?ñ          Ä?˙          Ä?à          Ä?»          Ä?∆          Ä?î          Ä?¥          Ä?í          Ä?Ñ          Ä?z          Ä?x          Ä?Ñ          Ä?ê          Ä?†          Ä?∫          Ä?v          Ä?Ó          Ä?å          Ä?∞          Ä?ä          Ä?t          Ä?`  Ä?        Z  Ä?        ä          Ä?           Ä?Æ          Ä?T  Ä?        Ü          Ä?Ë          Ä?‰          Ä?ö          Ä?|          Ä?®          Ä?N  Ä?        f  Ä?        Ä          Ä?H  Ä?        à          Ä?6  Ä?        ‹          Ä?¬          Ä?ò          Ä?<  Ä?        ∫          Ä?∫          Ä?0  Ä?        B  Ä?        ∞          Ä?æ          Ä?ä          Ä?Ü          Ä?Í          Ä?¨          Ä?l  Ä?        ~          Ä?‘          Ä?*  Ä?        ∞          Ä?$  Ä?        ¥          Ä?Ï          Ä?Í          Ä?∂          Ä?é          Ä?  Ä?        ⁄          Ä?Ú          Ä?ƒ          Ä?≤          Ä?  Ä?          Ä?        Ç          Ä?‘          Ä?  Ä?        ê          Ä?   ∆T∆ ¿‹ ƒê6 ¬B®  TrÃ "$&(*,.02468:<>@BDFHJLNPRTVXZ\^`bdfhjlnprtvxz|~ÄÇÑÜàäåéêíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéêíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéêíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍ pÃ "$&(*,.02468:<>@BDFHJLNPRTVXZ\^`bdfhjlnprtvxz|~ÄÇÑÜàäåéêíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéêíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéêíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍ hPíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡ fP¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéê `(öúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿ bP¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéê ^(öúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿ \(öúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿ Lî Jî 8é 2å Pñ .ä jPíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡ &ÑÜà "Ç ~ Xò ~ ,RTVXZ\^`bdfhjlnprtvxz| >ê 4å Ä ,RTVXZ\^`bdfhjlnprtvxz| Vò lPíîñòöúû†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡ *ÑÜà ,RTVXZ\^`bdfhjlnprtvxz| (ÑÜà  Ç Fí :é P
+ "$&(*,.02468:<>@BDFHJLNP Rñ Dí ,ä @ê 
+P
+ "$&(*,.02468:<>@BDFHJLNP dP¬ƒ∆» ÃŒ–“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ÄÇÑÜàäåéê Ä P
+ "$&(*,.02468:<>@BDFHJLNP                ÓæcâA\A5øêR¡∏A]AŸaH@p‡6¡∂∑}ÄAÈπI@`]¡∞@BAb¥@O'ƒ¿¨êdA“|)A/¢ò¿§º‹@z@Ao„>ûÆ≠@úxï@±≠∞@ú¿n	@Ï0Ñ@AôÍ@ñT?v¿	ï{@@ËkAîàri¿Ÿ‚%@‰ÈëAí]Ω¿Ï[è@Ïj§AÇP1@.«øÄ«-A˛Å¸n>«èÿ>±Wû@¸Ä≤Î?y|'@‚D@¯ t?3AáÍD?ÍëÅ¿B∫?A/y∏¿Êëë¿27;Ayéø‚`AA¿å ∞@êë?ﬁÿ[±ønéøã«CΩÿje¿Ñ7ï¿¡0Å@†‚L∏@JëAÅ•î@“·®®¿ú;õ¿`òA–‹√¿Ní≠ø·µ¸@»€;¡î˜ª@ƒ9çAÚÙœò@Ï[ì@ˇôÄ¿¬Pªã¿dE˙@`ò&A¿ pøDï˚@¿}3A∏8r)AíG+A/)A∂&&At»˙@xFPA¨lã[@¨&°@X}°A™¥1=D÷@T¸§A®hƒ?¬OA‹hÆA§ê®"?Í´A ÙÉAéDπ¯¿ﬁ¥øÙAèAû†æ@ÚeAHkAúiø™°uA¿'WAòFt¿íGCA¿}Añ
+¿b¿:AAÔÙ@íö∞9¡DÈ‚@—±Ç@é{+D¡“Já?á`?Üú€R¡"V4¡:¿äâoÑ¿Ù©¿ºçÉA‡hI˛øl@yÊ]ø¶lãk@“ß"AÏïïAÑïZS¡¢¿(¡ƒáµ? „º/¡)Ô'@Z|AÇqT0¡)@¡ApÇ@Ä„ºI¡b∂M¡Ï@˛Ö.¡:ZR¡Xñ+A¸◊∫@¡V¥P¡ÄúdA™)A™K#A€Ñ¿¯Z{A¡< ‘¿∞%hAˆ/ÙR¡*-¡@g4A¶Ü‘%Aí4Aƒ›„?ÙÎhF¡,˛Ë¿Ò6ˆ@ÚB¡Já¡∫Í@)äÎ¿¨=˙¿ApÇ@Ó∞â¡$RË¿\‡>ˆm,>Ñ ¯@˛^¿Ï`È¿óÖc¿Pﬁ>Ë!ﬁ‚¿ŸåW@ò˝?Êb'¡º~÷@ T?‚¡·¡b?QA˜}@‡T¬¿ÚÇ|AÒü@ﬁãö€¿	ÜAêJA÷Ä	‰>=7ÅA¬kA@“,Ñ≠@m?èAÒ• æ–L`@9·ëAæ”c¿¬ \x¿i•K@òa¡¿¢sÆ¿‚˛Ω®>o¡Üo{=˜	¿<#åAæú¡π‚œæxås¡º€¡)ô!@l£å¡¶¯<A.µÿøˇE≠¿Œ¶mê@)âÄA/ÕÀ¿˙˛ÎL¡bã¡¯óÅA§∫2AóZ¿|“ø†DtAq†æ—‹°@övßAúSxøÿ+'Añ¿≥KA¸üÇ¿∏{dAºL	≈@Ó@HiAîL OA|5¶¿hÓ*AÆ*Y¬@lÒ“@h™≤A¢:ùAè']>D…•?é¬TèA§;j?Å•†@¢`r∫øÖGA‘ëêAÇÙÊPAÏù˜¿¯À¡∆ºÜø§˘ﬁ@†í¡úú≠:Ay“@¿RA$ÿ∞@zôA_ ì¿˛\a˙@ ¡˘0¡àJı]AW'i¿˘¥Uø¸W´@˛z>¡®>O¡¯î–§ønç1¡®îe¡Ù5åÊ¿r¡¯†q¡Ù…¥?ƒ‘Ñ@π$¿‹–jÍ?á.¿Ñ{ì?ƒœ%¯¿lõ‹@»”QA„º;¡nç%¡cç¡Ïy ;¡÷_¡`2Q¡Ñ>ÛDAîè‚¿œ=…¿Ë√:¡”o¡?˙…¿òd$=A9&€æ®#[Aå◊—ÿ¿ó\W¿ÿ+iAÊ\¶¡‚K;¡O”»¿≤æqö@∑∂[¿|–ñ¡‰LNM¡⁄ü¡Â¿ˆ.f¿r¡\KÅ¡Œò¡d\:?0ê"A‚u™@¡Ãƒ¿–≈¡Ä,+>@\/øaKË@ﬁ=8ˇ¿¸ Ñ¿ÿF¡®‚cATZå¿œº˚¿í∂‹oA7w¿XkA‹âo¨¿¸ıú¿Äm¡⁄‘©Z¿\∞æ¿X>¡™AA‰ä¿ £8¡ÿê2øëÔîA·µ¥@ÿ
+3¿f¡x∑$¡Æ>ÛA‚K	¡§WÉ¡®ú≠.A:dAyËHø÷w¨?v9¡@ÿ¡‡¥ﬂ¡|`›¿Q ¡‘§=@ÚMH¡P⁄¡æ˙-@*A∏PA“‘≤@öL¡øè’¿–6GA.Ép¡oÉ√¿ÃnA"VP¡˘^'øÄ®Ø3A
+R¡†gK¡¥∞DÙ@`›@∞§vA¨pÍ@|`≈¿–\¡ »_A>€¡á+?¢ò@æ@ä∆Aáq[?îÓì¡2∏Aë“⁄@»<±∑@∂ô¡B‘@∫≥”¿≤¡≈?tOú¡ö‡óú?)nj@∞˙.Aå8ïAú VøË⁄?∆*˝@\Ö”¿Å–£@ƒñrødÔì@†gC¡¿Fàó@∑5¿<ü€øê%	¡“û˙?|ÉúA∏HﬁŸ@Œ˛Ñøhﬁs¡∂h
+n@$ k?PIÇ¡≤∞[TAÑı¯@`]¡≤dﬂV@iO}@ËH ¡¶`Urøíì>¡Doë?¥Ùõ?ß3K¿‰aé¡ºvôAiO@ SI¡åö∞K¡g),¿«‹>Ã0¨[@⁄~RAÙà¿÷∏zM¿‚ ¡1Ìç@™ú|°øÙI†¿|´Ωø§≤N¿6R¡|Ø”ø¢f¬.¿-ÖÖ¡~J"¿Ó„ºY¡ﬁı.¡–öf¡˙à∫@¢Î#¡¿mj¡‰™Á¿r¬AbY@†‡ønø51ñ¡ﬂÈ°¿Æ‚cnA,fﬁ@~Ù{¿ÃF9¡R≥Ë?8ª=AêèŸ=¡©.U@‚v@û'@¡ùê¡>ò\¿à¡ø¸ π¿dâAúÄl@;≤ñ¡O)€¿º∂≈ô@éÚ¢ø¯ˆ¡ö‘Ò@ÍÃv¡Ï¿Œ∆4/AJ≤k¡ËQ¿òÅ}>ûjP¡øè±¿∏˛09¿r¢?º[ò¡ûí÷>A	È@aü≥@⁄™Z=YëÖAh√Añ ÃŸ>"V¡œì´¿˙p∞∞?¨– @¢8&@àf}b¡l3˜¿^ÚH¿»¯∆ô?öI Aò<¡∆Ny¡$dÁ@t◊àAîá/¿<’Ï¿üã´¿¥:>áAÑü⁄@ S	¡íÃ(-¿l›Ñ¿ﬂj„¿Ñn){¡Nî¯ø@¡z—9m¡èí>Å•∞@x„ºo¡‹ˇ4øhÓAÑ °“>‹‘møÿ `AêÆuë¿\oø?¸–¿†u±?ö»nAT¸ëA∫Ï#‹@\ƒøË…7¡vT˙?¡gB¿PAÓ†7Á?“QAÖé¿å·®Ë¿íΩØ?¯ˆ+¡∞8[Õ@ú∫Ÿ¿ƒ‹ó¡äÑ©pA9ô√æK*?t}V¡Gœ?¿æº@`˚Òº¡èΩÖAŒê‚@Z†≈¡ÖÛúAì™!Aä’è¡π0@ˇˆ¿ \aÇ@¢ı(AÚ›¿Æ‡«É>«7ﬂ>sø¿Tx;#¡v}πAåÌ‘@Ü¿≥cAÃCã¿œëê¿Ëdi´¿ÇeA~ˆF¿‰Ó™É¿rlA<˜¥øö÷‘I¿rlKAxF@A|“√â¡qÙ|æ¬Ë(@®ø8oæíì¡Ω≈>Nù¡fæAQ fAf,∏†¡+1nA†‡¡ÄÅ¨u¡‚
+™ΩQ¿H5@Í¿Wu©Af˘ßAàú€L¡È:@x6¡6Ë@¡~önA¬5ÃA‹ÜGZ¿ZäA0eA¬‚L¿@«-¿ƒÂ?ò ˝¿y&@Pø;A<QÏ—¿˜õAì˜A∫  ÉA|ô@†íZ¡∫t|A≤˜Aaı˘@04ÒÙø‹¿BA‹∞ABòt1¿^n_A…e«A∞∂‹Aº(–@»èßAæ–ÙÆ@‚®ôΩ/¯ö¿ä¿·=¡‘ƒò¿æ’&¿ÜœH¡\∆@ø8,,¡ÍT˙S¡ l¡ÿ¡¨ ¡&?ó)¿^Úp¿l“ü]¡µiÙAÿÛ7¡~≥>à¡ß3¿yûø‘teÑ@*·|Av@*xßû@;õA≠ÜA∞uë?d€d?$¡$ΩoÚ?3[¿Aª¨[A¥f8í@¬U@`≥X¡Ï†¶ŒæÚÇ@AØ∏ï¿Í/˝¿èû>Ó>∂∞UêønÏ·ø(Ì¢¡édów¿Rﬁﬂ?P0¡Ÿë=¡GËƒA	|ìA⁄ñ>#ã¿Ò‚Ç@Ú;ˆ#¡4ﬁ¿úÄÜ¡ƒnA{å¿ı@≤\xAº~ä@¯óêAõùé¡3åAÂA–¿¿±ëƒA˛îAÇπøà¡G€>o“¿‘,„N¿¥æ˚¿Ë-A¥≥–¡2E@™FíAê ÈmA.6ûø!Èª@        0€5Oﬂ5¬˘Ë˝Û™K  0€5Oﬂ5¬˘Ë˝Û™K
