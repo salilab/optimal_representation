@@ -11,7 +11,7 @@ There is one config file per experiment (one for finding the optimal representat
 finding an optimal representation for complex 7CEI when the component protein structures are known, and one for finding optimal representations
 given sparse and dense input crosslinks for complex 2IDO).
 
-- `inputs for modeling`: crosslinks files, FASTA and PDB files. 
+- `inputs for modeling`: crosslinks files, FASTA and PDB files. In the case of complex 1AVX, Modeller files are also present since missing residues were added to both proteins in the complex. 
 
 - `topology file`: a file with lines in the following format for fixing the representation for each protein domain.
 `*Protein domain protein_chain fastakey start_residue end_residue pdb pdb_chain resolution color*`
