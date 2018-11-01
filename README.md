@@ -3,12 +3,12 @@ This repository pertains to the benchmarks for testing the method to determine t
 It contains input data, scripts for modeling, and results including bead models and localization probability density maps. It uses [IMP](https://integrativemodeling.org) (*Integrative Modeling Platform*).
 
 ## Prerequisites 
-Note that the results were obtained using code and scripts in the [`optrep`] (https://github.com/salilab/optrep) module of IMP. 
+Note that the results were obtained using code and scripts in the [optrep] (https://github.com/salilab/optrep) module of IMP. 
 
 ## Folder structure:
 1) [inputs](inputs/) : contains all the input data used for modeling such as PDB files, crosslink files, configuration files, and so on.
 2) [results](results/) : contains the optimal representations obtained, as well as final representative models. 
-4) [scripts](scripts/) : scripts that are *specific to the benchmark* are included in this repository. For more general scripts and code, the user is referred to the [`optrep`] (https://github.com/salilab/optrep) module. 
+4) [scripts](scripts/) : scripts that are *specific to the benchmark* are included in this repository. For more general scripts and code, the user is referred to the [optrep] (https://github.com/salilab/optrep) module. 
 
 ## Information
 _Author(s)_: Shruthi Viswanath 
