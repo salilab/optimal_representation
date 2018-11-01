@@ -10,6 +10,6 @@ finding an optimal representation for complex 7CEI when the component protein st
 
 - `inputs for modeling`: crosslinks files, FASTA and PDB files. In the case of complex 1AVX, Modeller files are also present since missing residues were added to both proteins in the complex. 
 
-- `topology file`: a file with lines in the following format for fixing the representation for each protein domain.
+- `topology file`: a file with lines in the following format for fixing the representation for each protein domain.\
 `*Protein domain protein_chain fastakey start_residue end_residue pdb pdb_chain resolution color*`
 The resolution is fixed by giving a number or specified as "bm" (stands for beadmap) if it is to be optimized. Note that one of the proteins usually has a fixed resolution while the representation of the other protein is optimized. 
