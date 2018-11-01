@@ -1,2 +1,0 @@
-B B_1 7CEI_B 446 576 7CEI.pdb B bm blue
-A A_1 7CEI_A 1 87 7CEI.pdb A 1 red
