@@ -14,18 +14,25 @@ sized beads).
 
 ## tfiih
 
-### Sampling
+### Prerequisites
+Note that one cannot set non-uniform resolutions in PMI1, hence the older scripts had to be adapted to PMI2.
+The patches are found in [tfiih/prereqs](tfiih/prereqs) and need to be added to the PMI module's pyext/src directory. 
+
+### Master script
+The full sequence of steps is outlined in the `tfiih_list_of_steps.sh` file. 
+It uses the following component scripts. 
+
+### Component scripts 
+#### Sampling
 These scripts are for performing limited sampling at every coarse-graining iteration during the representation optimization, and finally complete sampling with the optimal representation.
 
 - `job_sample_wrapper.sh` is the master script that takes as argument the resolution (i.e. coarse-grained bead size: 10,30, or 50 in this case), number of steps to run sampling for, number of independent sampling runs, and type of job script depending on the queue used. It calls the cluster job scripts `job_sample_all.sh` or `job_sample_labq.sh` depending on the queue.
 
 The job scripts inturn call `sample_multires.py` (which uses `restraints.py`): these two are adapted versions of the TFIIH scripts to work with PMI2.
 
-Note that one cannot set non-uniform resolutions in PMI1, hence the older scripts had to be adapted to PMI2.
-
 There is also a script to test the Monte Carlo acceptance values for different runs (useful for generating approximate move sizes for different sized beads).
 
-### Calculating precision
+#### Calculating precision
 These scripts are for calculating the bead-wise sampling precision at every coarse-graining iteration during the representation optimization.
 
 - `precision_wrapper.sh` is the master script that takes as argument the number of cores for calculating precision (usually 4), resolution (i.e. coarse-grained bead size: 10,30, or 50 in this case), and number of steps that sampling was run for (7000 here). It calls the cluster job script `job_precision.sh` which in turn calls `estimate_sampling_precision.py` from the `optrep` module. 
