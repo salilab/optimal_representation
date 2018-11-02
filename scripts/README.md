@@ -17,11 +17,13 @@ sized beads).
 ### Sampling
 These scripts are for performing limited sampling at every coarse-graining iteration during the representation optimization, and finally complete sampling with the optimal representation.
 
-- `job_sample_wrapper.sh` is the master script that takes as argument the resolution (i.e. coarse-grained bead size: 10,30, or 50 in this case), number of steps to run sampling for, number of independent sampling runs, and type of job script depending on the queue used. It calls the cluster job scripts `job_sample_all.sh` or `job_sample_labq.sh` depending on the queue.
+- `job_sample_wrapper.sh` is the master script that takes as argument the resolution (i.e. coarse-grained bead size: 10,30, or 50 in this case), number of steps to run sampling for, number of independent sampling runs, and type of job script depending on the queue used. It calls the cluster job scripts `job_sample_all.sh` or `job_sample_labq.sh` depending on the queue. \ 
 
-The job scripts inturn call `sample_multires.py` (which uses `restraints.py`): these two are adapted versions of the TFIIH scripts to work with PMI2.
+The job scripts inturn call `sample_multires.py` (which uses `restraints.py`): these two are adapted versions of the TFIIH scripts to work with PMI2.\ 
 
 Note that one cannot set non-uniform resolutions in PMI1, hence the older scripts had to be adapted to PMI2.
+
+There is also a script to test the Monte Carlo acceptance values for different runs (useful for generating approximate move sizes for different sized beads).
 
 ### Calculating precision
 These scripts are for calculating the bead-wise sampling precision at every coarse-graining iteration during the representation optimization.
