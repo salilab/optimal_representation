@@ -1,16 +1,21 @@
 ## binary_complexes
-Scripts for running sampling are provided. 
+
+### Master script
+The full optimization of representation (and complete sampling in the optimal representation) can be performed using the master scripts `incremental_coarse_grain.py` (cluster version) and `incremental_coarse_grain_local.py` (desktop multi-core version).  
+
+The master scripts use the following component scripts.  
+
+### Component scripts 
+
+#### Sampling
 - `sample_rigid_to_snake.py` is the sampling script when one protein's structure is known and its representation is kept fixed ("rigid"), and the representation of the other protein with unknown structure ("snake") is optimized with non-uniform resolution, flexible beads.
 
-- `sample_rigid_to_rigid.py` is a similar script to be used when both subunit structures are known, but one protein's representation is fixed while the 
-other protein's representation is optimized. 
+- `sample_rigid_to_rigid.py` is a similar script to be used when both subunit structures are known, but one protein's representation is fixed while the other protein's representation is optimized. 
 
 These scripts are called by the master scripts (`incremental_coarse_grain_local.py` or
-`incremental_coarse_grain.py`). To see how to use these scripts, refer to the master scripts which use the config files to pass command line 
-parameters to these sampling scripts. 
+`incremental_coarse_grain.py`).  
 
-There is also a script to test the Monte Carlo acceptance values for different runs (useful for generating approximate move sizes for different
-sized beads). 
+There is also a script to test the Monte Carlo acceptance values for different runs (useful for generating approximate move sizes for differentsized beads). 
 
 ## tfiih
 
