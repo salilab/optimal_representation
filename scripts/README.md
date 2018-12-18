@@ -2,11 +2,13 @@
 
 ### Master script
 The full optimization of representation (and complete sampling in the optimal representation) can be performed using the master scripts `incremental_coarse_grain.py` (cluster version) and `incremental_coarse_grain_local.py` (desktop multi-core version). 
-They require the `stats_helper` module from the file `stats_helper.py` found in the [optrep](https://github.com/salilab/optrep) module's `utilities` folder.
 
 The master scripts use the following component scripts.  
 
 ### Component scripts 
+
+#### Helper module
+They require the `stats_helper` module from the file `stats_helper.py` found in the [optrep](https://github.com/salilab/optrep) module's `utilities` folder. To import this module, you can just copy this file to the working directory from where you run the master scripts. 
 
 #### Sampling
 - `sample_rigid_to_snake.py` is the sampling script when one protein's structure is known and its representation is kept fixed ("rigid"), and the representation of the other protein with unknown structure ("snake") is optimized with non-uniform resolution, flexible beads.
