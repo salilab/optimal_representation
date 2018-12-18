@@ -1,7 +1,8 @@
 ## binary_complexes
 
 ### Master script
-The full optimization of representation (and complete sampling in the optimal representation) can be performed using the master scripts `incremental_coarse_grain.py` (cluster version) and `incremental_coarse_grain_local.py` (desktop multi-core version).  
+The full optimization of representation (and complete sampling in the optimal representation) can be performed using the master scripts `incremental_coarse_grain.py` (cluster version) and `incremental_coarse_grain_local.py` (desktop multi-core version). 
+They require the `stats_helper` module from the file `stats_helper.py` found in the `optrep` module's `utilities` folder.
 
 The master scripts use the following component scripts.  
 
