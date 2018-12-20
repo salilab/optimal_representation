@@ -15,8 +15,10 @@ finding an optimal representation for complex 7CEI when the component protein st
 
 - `topology file`: a file with lines in the following format for fixing the representation for each protein domain.\
 `*Protein domain protein_chain fastakey start_residue end_residue pdb pdb_chain resolution color*`\
-The resolution is fixed by giving a number or specified as "bm" (stands for beadmap) if it is to be optimized. Note that one of the proteins usually has a fixed resolution while the representation of the other protein is optimized. 
+The resolution is fixed by giving a number or specified as "bm" (stands for beadmap) if it is to be optimized. Note that one of the proteins here has a fixed resolution while the representation of the other protein is optimized. 
+
 The domain is used to separate parts with known structure (rigid bodies) from parts of the sequence with no known structure.
+Missing residues in the domains with a PDB structure are not modeled. If there is a significant stretch of missing residues in such domains, it is better to represent it as a new domain whose resolution is to be optimized (resolution "bm"). 
 
 ## tfiih
 The TFIIH [folder](tfiih/) contains all modeling and analysis inputs for modeling TFIIH, including component PDB files, crosslinks file, EM map, FASTA file, move sizes for different sized beads, file containing EM anchor points, and so on. See the [TFIIH repository](https://salilab.org/tfiih) and paper for details on these.\
